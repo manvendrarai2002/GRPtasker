@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int       @id @default(autoincrement())
+  email      String    @unique
+  password   String
+  name       String
+  domain     String?
+  role       String    @default("EMPLOYEE") // 'ADMIN' | 'EMPLOYEE'
+  employeeId String    @unique
+  groups     Group[]   @relation("UserGroups")
+  tasks      Task[]    @relation("Assignees")
+  comments   Comment[]
+  notifications Notification[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+model Group {
+  id        Int      @id @default(autoincrement())
+  name      String
+  domain    String?
+  users     User[]   @relation("UserGroups")
+  tasks     Task[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Task {
+  id          Int             @id @default(autoincrement())
+  title       String
+  description String
+  priority    String          @default("MEDIUM") // 'HIGH' | 'MEDIUM' | 'LOW'
+  deadline    DateTime?
+  resources   String?         // JSON string of links/files metadata
+  checklist   ChecklistItem[]
+  comments    Comment[]
+  assignees   User[]          @relation("Assignees")
+  group       Group?          @relation(fields: [groupId], references: [id])
+  groupId     Int?
+  recurring   String?         // cron or RRULE string
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model ChecklistItem {
+  id        Int      @id @default(autoincrement())
+  text      String
+  doneBy    Int?
+  doneAt    DateTime?
+  task      Task     @relation(fields: [taskId], references: [id])
+  taskId    Int
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  text      String
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+  task      Task     @relation(fields: [taskId], references: [id])
+  taskId    Int
+  parent    Comment? @relation("CommentThread", fields: [parentId], references: [id])
+  parentId  Int?
+  replies   Comment[] @relation("CommentThread")
+  createdAt DateTime @default(now())
+}
+
+// Note: SQLite connector doesn't support Prisma enums. Using string fields instead.
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  type      String   // e.g., 'deadline', 'comment'
+  message   String
+  meta      String?  // JSON string (e.g., { taskId })
+  readAt    DateTime?
+  createdAt DateTime @default(now())
+}

@@ -1,126 +1,95 @@
 # GRP Tasker
 
-A full‑stack Task & Team Management hub built with Next.js (App Router), Tailwind CSS, Prisma (SQLite), and JWT auth.
+[cite\_start]GRP Tasker is a full-stack task and team management application designed to help modern teams streamline their workflow and boost productivity[cite: 1]. [cite\_start]It's built with a robust tech stack to provide a comprehensive and efficient user experience[cite: 1].
+
+-----
 
 ## ✨ Features
-- Next.js 14 App Router (React + server route handlers)
-- Tailwind CSS design system and dark‑mode friendly theme
-- Prisma ORM with SQLite: Users, Groups, Tasks, Checklist, Comments, Notifications
-- JWT auth via httpOnly cookie; middleware‑protected routes
-- Admin dashboard: create tasks/users/groups, manage group membership
-- Task details: checklist toggles, comments, progress and due dates
-- Analytics dashboard (server API + page)
 
-## 🧱 Tech Stack
-- Frontend: Next.js (React), Tailwind CSS, TypeScript
-- Backend: Next.js Route Handlers (REST)
-- DB/ORM: Prisma + SQLite
+  * [cite\_start]**Next.js 14 App Router:** The application uses React and server route handlers for a modern and efficient frontend[cite: 1].
+  * [cite\_start]**Tailwind CSS:** The design system is built with Tailwind CSS, supporting a clean and dark-mode friendly theme[cite: 1].
+  * [cite\_start]**Prisma ORM with SQLite:** Data is managed using Prisma, with key models for `User`, `Group`, `Task`, `ChecklistItem`, `Comment`, and `Notification`[cite: 1].
+  * [cite\_start]**JWT Auth:** Secure authentication is handled via JWT (JSON Web Tokens) with an `httpOnly` cookie, protecting key routes[cite: 1].
+  * [cite\_start]**Admin Dashboard:** Admins have a central hub to create and manage tasks, users, and groups, as well as manage group membership[cite: 1, 4].
+  * [cite\_start]**Task Details:** Users can view and manage tasks with features like checklist toggles, comments, and progress tracking[cite: 1, 3, 5].
+  * [cite\_start]**Analytics Dashboard:** The application includes a server API and page for comprehensive analytics and automated reporting[cite: 1].
+  * [cite\_start]**Notifications:** Users receive notifications for new comments on tasks[cite: 5].
 
-## 🗂️ Project Structure
-```
-src/
-	app/
-		admin/            # Admin dashboard + analytics
-		api/              # Route handlers (REST APIs)
-		dashboard/        # User dashboard
-		login/            # Auth page
-		tasks/[id]/       # Task details page
-	components/         # Reusable UI components
-	lib/                # Auth/Prisma helpers
-prisma/
-	schema.prisma       # Data models
-	seed.ts             # Demo data seeding
-```
+-----
 
-## 🧾 Data Models (Prisma)
-Key models: `User`, `Group`, `Task`, `ChecklistItem`, `Comment`, `Notification`.
+## 🚀 Getting Started
 
-## 🔌 API Overview
-- `POST /api/auth/login` – login
-- `POST /api/auth/register` – register (if enabled)
-- `GET/POST /api/groups` – list/create groups
-- `PUT /api/groups/:id/users` – update group membership
-- `GET/POST/DELETE /api/tasks` and `/api/tasks/:id` – CRUD tasks
-- `PATCH /api/tasks/:id/checklist` – toggle checklist item
-- `POST /api/tasks/:id/comments` – add comment
-- `GET /api/analytics/summary` – analytics data
+[cite\_start]To get the project up and running locally, follow these simple steps[cite: 1]:
 
-## 🚀 Getting started
+1.  **Copy the environment template:**
 
-1) Copy env template and set values
-```bash
-cp .env.example .env
-# on Windows PowerShell:
-copy .env.example .env
-```
-Edit `.env` and set:
-```env
-DATABASE_URL="file:./dev.db"
-JWT_SECRET="replace-with-strong-secret"
-NEXT_PUBLIC_BASE_URL="http://localhost:3000" # for Analytics fetch
-```
+    ```bash
+    cp .env.example .env
+    ```
 
-2) Install dependencies
-```bash
-npm install
-```
+    [cite\_start]Then, edit the `.env` file with your specific values[cite: 1]:
 
-3) Setup database and seed sample data
-```bash
-npm run db:push
-npm run db:seed
-```
+    ```env
+    DATABASE_URL="file:./dev.db"
+    JWT_SECRET="replace-with-strong-secret"
+    NEXT_PUBLIC_BASE_URL="http://localhost:3000"
+    ```
 
-4) Run the dev server
-```bash
-npm run dev
-```
-Open http://localhost:3000
+2.  **Install dependencies:**
 
-### ✅ Demo credentials
-- Admin: `admin@example.com` / `admin123`
-- Employee: `jane@example.com` / `password`
+    ```bash
+    npm install
+    ```
 
-Login at `/login`, go to `/dashboard`, and admins can access `/admin`.
+3.  **Setup and seed the database:**
 
-## 🧪 Scripts
-- `npm run dev` – start dev server on port 3000
-- `npm run build` – production build
-- `npm run start` – start production server
-- `npm run db:push` – sync Prisma schema to DB
-- `npm run db:seed` – seed demo data
+    ```bash
+    npm run db:push
+    npm run db:seed
+    ```
+
+4.  **Run the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+    [cite\_start]Open your browser and navigate to `http://localhost:3000`[cite: 1].
+
+### **✅ Demo Credentials**
+
+  * [cite\_start]**Admin:** `admin@example.com` / `admin123` [cite: 2]
+  * [cite\_start]**Employee:** `jane@example.com` / `password` [cite: 2]
+
+-----
 
 ## 🛣️ Main Routes
-- `/login` – authenticate
-- `/dashboard` – tasks overview for user
-- `/admin` – admin hub (create tasks/groups/users, manage groups)
-- `/admin/analytics` – analytics dashboard
-- `/tasks/:id` – task details (checklist + comments)
 
-## ☁️ Deploy
-- Vercel: set env vars (`DATABASE_URL`, `JWT_SECRET`, optionally `NEXT_PUBLIC_BASE_URL`), then connect repo
-- Self‑host: `npm run build` then `npm run start -p 3000`
+  * [cite\_start]**`/login`**: The authentication page for users to sign in[cite: 2].
+  * [cite\_start]**`/dashboard`**: The user's tasks overview[cite: 4].
+  * [cite\_start]**`/admin`**: The admin hub for creating and managing tasks, users, and groups[cite: 4].
+  * [cite\_start]**`/tasks/:id`**: The detailed view for a specific task, including checklists and comments[cite: 3, 5].
 
-## 🧰 Troubleshooting
-- Missing env var: copy `.env.example` to `.env`
-- SQLite locked: stop running dev server and retry `npm run db:push`
-- Port 3000 in use: kill the process or run `next dev -p 3001`
+-----
 
-## 📦 Push to GitHub
-Ensure repo hygiene:
-- `.gitignore` excludes build artifacts, node_modules, and `.env`
-- `.env.example` documents env vars (do NOT commit real secrets)
-- `LICENSE` included (MIT)
+### Initial Login Page
 
-Initialize and push:
-```bash
-git init
-git add .
-git commit -m "feat: initial app"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repo>.git
-git push -u origin main
-```
+[cite\_start]The initial login page is a welcoming landing page that highlights the core features of GRP Tasker, including task management, team collaboration, and analytics[cite: 1]. [cite\_start]It provides a clear entry point for users with a prominent login button[cite: 1].
 
-## 📄 License
-MIT – see `LICENSE`.
+-----
+
+### Login and Admin Dashboard
+
+[cite\_start]Clicking the **Login** button takes you to a simple login page where you can enter your credentials[cite: 2]. [cite\_start]After logging in as an admin, you're directed to the **Admin Dashboard**, which serves as the central control panel for creating new tasks, groups, and users, as well as managing user roles[cite: 4].
+
+-----
+
+### Employee Dashboard and Task View
+
+[cite\_start]When an employee logs in, their dashboard displays all their assigned tasks, showing their progress and due dates[cite: 4]. [cite\_start]Clicking on a task, such as "task1," opens a detailed view where they can see the checklist items and add comments for updates[cite: 3].
+
+-----
+
+### Task Completion and Notifications
+
+[cite\_start]Once a task is complete, an employee can update the checklist and leave a comment for the admin[cite: 5, 6]. [cite\_start]For example, the image shows a comment from "Jane Doe" stating "done and report has been mailed to you"[cite: 5]. [cite\_start]This action triggers a notification for the admin, who can then review the update[cite: 5, 6].

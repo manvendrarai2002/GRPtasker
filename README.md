@@ -35,7 +35,7 @@ GRP Tasker is a full-stack task and team management application designed to help
 
 ## 🚀 Getting Started
 
-[cite\_start]To get the project up and running locally, follow these simple steps.
+To get the project up and running locally, follow these simple steps.
 
 1.  **Copy the environment template:**
 

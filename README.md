@@ -1,6 +1,6 @@
 # GRP Tasker
 
-GRP Tasker is a full-stack task and team management application designed to help modern teams streamline their workflow and boost productivity[cite: 1]. [cite\_start]It's built with a robust tech stack to provide a comprehensive and efficient user experience
+GRP Tasker is a full-stack task and team management application designed to help modern teams streamline their workflow and boost productivity.It's built with a robust tech stack to provide a comprehensive and efficient user experience
 
 -----
 
@@ -75,21 +75,35 @@ GRP Tasker is a full-stack task and team management application designed to help
 ### Initial Login Page
 
 The initial login page is a welcoming landing page that highlights the core features of GRP Tasker, including task management, team collaboration, and analytics[cite: 1]. [cite\_start]It provides a clear entry point for users with a prominent login button.
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/8a50d2dc-4908-4f8c-8049-def9126a0156" />
+
 
 -----
 
 ### Login and Admin Dashboard
 
 Clicking the **Login** button takes you to a simple login page where you can enter your credentials. After logging in as an admin, you're directed to the **Admin Dashboard**, which serves as the central control panel for creating new tasks, groups, and users, as well as managing user roles.
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/5a0e6811-6c1c-4ef7-a266-84986b854932" />
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/d739e122-6f31-4fb9-831d-5b19e73bf5f0" />
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/c19f4c05-6377-459a-8eea-018a75e9c805" />
+
+
 
 -----
 
 ### Employee Dashboard and Task View
 
 When an employee logs in, their dashboard displays all their assigned tasks, showing their progress and due dates.Clicking on a task, such as "task1," opens a detailed view where they can see the checklist items and add comments for updates.
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/270c4db4-0324-4672-95ca-725585a5e256" />
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/2603cd8d-a71e-46be-8145-ae6910b9fe7d" />
+
+
 
 -----
 
 ### Task Completion and Notifications
 
 Once a task is complete, an employee can update the checklist and leave a comment for the admin. For example, the image shows a comment from "Jane Doe" stating "done and report has been mailed to you". This action triggers a notification for the admin, who can then review the update.
+
+<img width="940" height="529" alt="image" src="https://github.com/user-attachments/assets/5c2e9521-afd2-49a1-ad01-b68ccded6470" />
+

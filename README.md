@@ -6,30 +6,30 @@ GRP Tasker is a full-stack task and team management application designed to help
 
 ✨ Features
 
-Next.js 14 App Router: The application uses React and server route handlers for a modern and efficient frontend.
+1.Next.js 14 App Router: The application uses React and server route handlers for a modern and efficient frontend.
 
 
-Tailwind CSS: The design system is built with Tailwind CSS, supporting a clean and dark-mode friendly theme.
+2.Tailwind CSS: The design system is built with Tailwind CSS, supporting a clean and dark-mode friendly theme.
 
 
-Prisma ORM with SQLite: Data is managed using Prisma, with key models for User, Group, Task, ChecklistItem, Comment, and Notification.
+3.Prisma ORM with SQLite: Data is managed using Prisma, with key models for User, Group, Task, ChecklistItem, Comment, and Notification.
 
 
-JWT Auth: Secure authentication is handled via JWT (JSON Web Tokens) with an httpOnly cookie, protecting key routes.
+4.JWT Auth: Secure authentication is handled via JWT (JSON Web Tokens) with an httpOnly cookie, protecting key routes.
 
 
-Admin Dashboard: Admins have a central hub to create and manage tasks, users, and groups, as well as manage group membership.
-
-
-
-Task Details: Users can view and manage tasks with features like checklist toggles, comments, and progress tracking.
+5.Admin Dashboard: Admins have a central hub to create and manage tasks, users, and groups, as well as manage group membership.
 
 
 
-Analytics Dashboard: The application includes a server API and page for comprehensive analytics and automated reporting.
+6.Task Details: Users can view and manage tasks with features like checklist toggles, comments, and progress tracking.
 
 
-Notifications: Users receive notifications for new comments on tasks
+
+7.Analytics Dashboard: The application includes a server API and page for comprehensive analytics and automated reporting.
+
+
+8.Notifications: Users receive notifications for new comments on tasks
 -----
 
 ## 🚀 Getting Started
